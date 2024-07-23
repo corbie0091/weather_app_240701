@@ -1,3 +1,16 @@
-export const App = () => {
-  return <h1>여기까지 진행 해주세요</h1>;
+import { HashRouter, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/SignUp";
+import { PageNotFound } from "./pages/PageNotFound";
+
+export const Router = () => {
+  return (
+    <HashRouter>
+      <Routes path="/" element={<Home />} />
+      <Routes path="/login" element={<Login />} />
+      <Routes path="/signup" element={<Signup />} />
+      <Routes path="/*" element={<PageNotFound />} />
+    </HashRouter>
+  );
 };
