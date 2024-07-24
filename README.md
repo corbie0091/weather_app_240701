@@ -3,10 +3,10 @@
 ### 설치한 패키지
 
 - [] react-router-dom
-- [] styled-components
-- [] styled-reset
-- [] axios //외부 api 연결에 도움을 주는 것
-- [] tan-stack-query
+- [x] styled-components
+- [x] styled-reset
+- [x] axios //외부 api 연결에 도움을 주는 것
+- [x] tan-stack-query
 - [] react-helmet
 
 ### 작업 내용 - 어떤식으로 뭐해야할지에 대한 내용

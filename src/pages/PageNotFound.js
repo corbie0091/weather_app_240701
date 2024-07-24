@@ -1,3 +1,3 @@
-export const pageNotFound = () => {
+export const PageNotFound = () => {
   return <div>404</div>;
 };
