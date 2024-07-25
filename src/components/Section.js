@@ -61,6 +61,9 @@ export const Section = ({ TempData }) => {
           </Num>
         </Temp>
       </TempWrap>
+
+      <p>위도: {TempData.coord.lat}</p>
+      <p>경도: {TempData.coord.lon}</p>
     </SSection>
   );
 };

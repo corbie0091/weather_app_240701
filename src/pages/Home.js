@@ -43,8 +43,6 @@ export const Home = () => {
               <Header headerData={data} />
 
               <Section TempData={data} />
-              <p>위도: {data.lat}</p>
-              <p>경도: {data.lon}</p>
             </Container>
           )}
         </>
