@@ -9,9 +9,12 @@ const instance = axios.create({
   },
 });
 
-export const getWeather = () => {
-  const lat = "35.15748237986217";
-  const lon = "129.06009747301636";
-  return instance.get(`weather?lat=${lat}&lon=${lon}`).then((res) => res.data);
+export const getWeather = ({ queryKey }) => {
+  console.log(queryKey);
+  const [weather, lat, lon] = queryKey;
+  console.log(weather);
+  return instance
+    .get(`${weather}?lat=${lat}&lon=${lon}`)
+    .then((res) => res.data);
 };
 // get = 노출되도 되는 것 , post = 노출 안되야 하는것

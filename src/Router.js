@@ -1,17 +1,18 @@
-import { HashRouter, Routes } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
-import { Signup } from "./pages/Signup";
+import { SignUp } from "./pages/SignUp";
 import { PageNotFound } from "./pages/PageNotFound";
 
 export const Router = () => {
   return (
     <HashRouter>
-      <Home />
-      <Routes path="/" element={<Home />} />
-      <Routes path="/login" element={<Login />} />
-      <Routes path="/signup" element={<Signup />} />
-      <Routes path="/*" element={<PageNotFound />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/*" element={<PageNotFound />} />
+      </Routes>
     </HashRouter>
   );
 };
