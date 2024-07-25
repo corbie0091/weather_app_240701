@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 const SHeader = styled.div`
   display: flex;
@@ -22,7 +23,26 @@ const MyLocation = styled.div`
 const More = styled.div`
   font-size: 26px;
 `;
+
+const getCurrentDateTime = () => {
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const now = new Date();
+  const day = days[now.getDay()];
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  return `${day}, ${hours}:${minutes}`;
+};
+
 export const Header = ({ headerData }) => {
+  const [currentDateTime, setCurrentDateTime] = useState(getCurrentDateTime());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDateTime(getCurrentDateTime());
+    }, 60000); // 1분마다 업데이트
+
+    return () => clearInterval(intervalId); // 컴포넌트가 언마운트될 때 인터벌 정리
+  }, []);
   return (
     <SHeader>
       <Menu>
@@ -30,7 +50,7 @@ export const Header = ({ headerData }) => {
       </Menu>
       <MyLocation>
         <h3>{headerData.name}</h3>
-        <p>Sat, 19:30</p>
+        <p>{currentDateTime}</p>
       </MyLocation>
       <More>
         <FontAwesomeIcon icon={faPlus} />
